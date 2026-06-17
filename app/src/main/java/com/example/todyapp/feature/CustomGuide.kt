@@ -22,13 +22,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.room.ThemeColor
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.Milk
 import com.example.todyapp.ui.theme.White
 import com.example.todyapp.ui.theme.bgc
-import com.example.todyapp.ui.theme.toThemeColor
 import com.example.todyapp.ui.theme.toThemeName
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable

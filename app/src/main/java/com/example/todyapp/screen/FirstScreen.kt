@@ -1,6 +1,5 @@
 package com.example.todyapp.screen
 
-import android.util.Log.i
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -17,9 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.key.Key.Companion.U
 import androidx.navigation.NavController
-import androidx.room.util.TableInfo
 import com.example.todyapp.feature.BottomBar
 import com.example.todyapp.feature.ScheduleCard
 import com.example.todyapp.feature.ScheduleCardTF
@@ -27,7 +24,6 @@ import com.example.todyapp.feature.TopBar
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.bgc
 import kotlinx.coroutines.launch
 

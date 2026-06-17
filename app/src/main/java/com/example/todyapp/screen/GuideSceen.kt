@@ -22,7 +22,6 @@ import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.ui.theme.Black
 import com.example.todyapp.ui.theme.Blue
 import com.example.todyapp.ui.theme.Greenx
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.Red
 import com.example.todyapp.ui.theme.bgc
 

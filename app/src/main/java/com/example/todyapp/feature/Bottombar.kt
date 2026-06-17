@@ -21,7 +21,6 @@ import com.example.todyapp.R
 import com.example.todyapp.root.Fifth
 import com.example.todyapp.root.First
 import com.example.todyapp.root.Fourth
-import com.example.todyapp.root.Guide
 import com.example.todyapp.root.Second
 import com.example.todyapp.root.Third
 import com.example.todyapp.ui.theme.White

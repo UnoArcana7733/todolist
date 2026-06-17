@@ -1,5 +1,6 @@
 package com.example.todyapp
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,11 +12,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import androidx.core.view.WindowCompat.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.example.todyapp.room.AppDatabase
-import com.example.todyapp.room.Schedule
 import com.example.todyapp.root.AppNavGraph
 import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.TodyappTheme

@@ -1,7 +1,5 @@
 package com.example.todyapp.room
 
-import androidx.compose.ui.graphics.Color
-import androidx.room.DatabaseView
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

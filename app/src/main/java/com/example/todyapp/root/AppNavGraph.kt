@@ -2,14 +2,18 @@ package com.example.todyapp.root
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.todyapp.room.ColorDAO
-import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
-import com.example.todyapp.screen.*
+import com.example.todyapp.screen.FifthScreen
+import com.example.todyapp.screen.FirstScreen
+import com.example.todyapp.screen.FourthScreen
+import com.example.todyapp.screen.GuideScreen
+import com.example.todyapp.screen.SecondScreen
+import com.example.todyapp.screen.StartScreen
+import com.example.todyapp.screen.ThirdScreen
 import kotlinx.serialization.Serializable
 
 @Composable

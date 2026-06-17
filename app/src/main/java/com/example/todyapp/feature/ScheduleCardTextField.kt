@@ -1,8 +1,5 @@
 package com.example.todyapp.feature
 
-import android.R.attr.name
-import android.provider.SyncStateContract.Helpers.insert
-import android.util.Log.e
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -34,12 +31,8 @@ import androidx.compose.ui.unit.sp
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
-import com.example.todyapp.room.ThemeColor
 import com.example.todyapp.ui.theme.Gray
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.White
-import com.example.todyapp.ui.theme.toThemeColor
-import com.example.todyapp.ui.theme.toThemeName
 import kotlinx.coroutines.launch
 
 // Greenx 문제 해결이 늦어져서 급한대로 TF 활용해 DB 사용만 구현했습니다

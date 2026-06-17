@@ -1,5 +1,6 @@
 package com.example.todyapp.screen
 
+//import com.example.todyapp.room.AppDatabase
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,10 +12,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,12 +20,9 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.room.Room
 import com.example.todyapp.R
 import com.example.todyapp.room.ColorDAO
-//import com.example.todyapp.room.AppDatabase
 import com.example.todyapp.root.Guide
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.White
 import kotlinx.coroutines.delay
 
