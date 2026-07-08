@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.TimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,6 +31,7 @@ import com.example.todyapp.ui.theme.Gray
 import com.example.todyapp.ui.theme.White
 
 @Composable
+@OptIn(ExperimentalMaterial3Api::class)
 fun ScheduleCard(
     customColor: Color,
     colorDao: ColorDAO,
@@ -40,6 +43,7 @@ fun ScheduleCard(
     val ds = todos.description
     val date = todos.date
     val time = todos.time
+//    val time= timee.toTimePickerState()
     Box(
         modifier = Modifier
             .size(500.dp, 200.dp)

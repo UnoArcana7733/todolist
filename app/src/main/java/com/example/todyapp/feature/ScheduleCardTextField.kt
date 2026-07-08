@@ -76,13 +76,13 @@ fun ScheduleCardTF(
                         .clickable() {
                             scope.launch {
                                 scheduleDao.insert(
-                                    Schedule(
-                                        id = 0,
-                                        name = scheduleName,
-                                        description = scheduleDescription,
-                                        date = scheduleDate,
-                                        time = scheduleTime
-                                    )
+//                                    Schedule(
+//                                        id = 0,
+//                                        name = scheduleName,
+//                                        description = scheduleDescription,
+//                                        date = scheduleDate,
+//                                        time = scheduleTime
+//                                    )
                                 )
                                 println(scheduleDao.getAll()) //DB 작동 테스트용
                                 refreshSC()

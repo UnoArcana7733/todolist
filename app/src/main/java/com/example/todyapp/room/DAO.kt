@@ -1,11 +1,13 @@
 package com.example.todyapp.room
 
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
+@OptIn(ExperimentalMaterial3Api::class)
 interface ColorDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun screenSelectColor(vararg themeColor: ThemeColor)
@@ -14,6 +16,7 @@ interface ColorDAO {
 }
 
 @Dao
+@OptIn(ExperimentalMaterial3Api::class)
 interface ScheduleDAO{
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(vararg schedule: Schedule)

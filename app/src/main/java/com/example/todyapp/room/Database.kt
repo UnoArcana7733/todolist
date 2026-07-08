@@ -1,11 +1,13 @@
 package com.example.todyapp.room
 
 import android.content.Context
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [ThemeColor::class, Schedule::class], version = 1)
+@OptIn(ExperimentalMaterial3Api::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun colorDao(): ColorDAO
     abstract fun scheduleDao(): ScheduleDAO

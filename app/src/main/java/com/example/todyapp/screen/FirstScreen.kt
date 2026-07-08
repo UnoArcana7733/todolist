@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.example.todyapp.feature.BottomBar
 import com.example.todyapp.feature.ScheduleCard
+import com.example.todyapp.feature.ScheduleCardPU
 import com.example.todyapp.feature.ScheduleCardTF
 import com.example.todyapp.feature.TopBar
 import com.example.todyapp.room.ColorDAO
@@ -41,7 +42,7 @@ fun FirstScreen(navController: NavController, mainColor: Color, colorDao: ColorD
             }
         }
         Column(modifier = Modifier.padding(innerPadding).verticalScroll(rememberScrollState())) {
-            ScheduleCardTF(mainColor, colorDao, scheduleDao, refreshSC)
+            ScheduleCardPU(mainColor, colorDao, scheduleDao, refreshSC)
             for(i in todolist){
                 println(i) //체크용
                 ScheduleCard(mainColor, colorDao, scheduleDao, i)
