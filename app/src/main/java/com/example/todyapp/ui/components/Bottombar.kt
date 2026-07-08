@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -92,6 +93,6 @@ fun BottomBar(navController: NavController) {
                 )
             }
         }
-        Box(modifier= Modifier.size(20.dp).background(White)) //하단에 있으니까 안보여서 넣었습니다
+        Box(modifier= Modifier.height(20.dp).background(White).fillMaxWidth()) //하단에 있으니까 안보여서 넣었습니다
     }
 }

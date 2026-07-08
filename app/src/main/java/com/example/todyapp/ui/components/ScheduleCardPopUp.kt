@@ -1,5 +1,7 @@
 package com.example.todyapp.ui.components
 
+import android.R.attr.text
+import android.R.color.white
 import android.icu.util.Calendar
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults.buttonColors
@@ -27,6 +31,8 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TimePicker
 import androidx.compose.material3.TimePickerColors
+import androidx.compose.material3.TimePickerLayoutType
+import androidx.compose.material3.TimePickerState
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
@@ -54,6 +60,7 @@ import com.example.todyapp.room.ScheduleDAO
 import com.example.todyapp.ui.theme.Black
 import com.example.todyapp.ui.theme.Gray
 import com.example.todyapp.ui.theme.Milk
+import com.example.todyapp.ui.theme.Red
 import com.example.todyapp.ui.theme.White
 import com.example.todyapp.ui.theme.bgc
 import kotlinx.coroutines.launch
@@ -90,10 +97,15 @@ fun ScheduleCardPU(
     var showTF by remember{mutableStateOf(false)}
     var showDS by remember{mutableStateOf(false)}
     var showTS by remember{mutableStateOf(false)}
+    var jumal = System.currentTimeMillis()
+    while (formatSelectedDate(jumal).substring(0,3)!="Sat") {jumal+=86400000}
     if (showTF) {
         Dialog(onDismissRequest = { showTF = false },properties = DialogProperties(usePlatformDefaultWidth = false)
         ) {
-            Card(modifier = Modifier.wrapContentHeight().fillMaxWidth().background(color=White),shape=RectangleShape) {
+            Card(modifier = Modifier
+                .wrapContentHeight()
+                .fillMaxWidth()
+                .background(color = White),shape = RoundedCornerShape(8.dp)) {
                 Column(modifier = Modifier) {
                     OutlinedTextField(
                         value = scheduleName,
@@ -134,7 +146,10 @@ fun ScheduleCardPU(
     if (showDS) {
         Dialog(onDismissRequest = { showTS = false },properties = DialogProperties(usePlatformDefaultWidth = false)
         ) {
-            Card(modifier = Modifier.fillMaxWidth().wrapContentHeight().background(color=White),shape=RectangleShape) {
+            Card(modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .background(color = White),shape = RoundedCornerShape(8.dp)) {
                 Column() {
                     val datePickerState = rememberDatePickerState()
                     val currentTime = Calendar.getInstance()
@@ -142,14 +157,32 @@ fun ScheduleCardPU(
                         DatePicker(
                             state = datePickerState,
                             headline = {
-                                dateFormatter()
-                            }
+                                Column(modifier = Modifier.fillMaxWidth().wrapContentHeight()){
+                                    Text(
+                                        text="Today . ${formatSelectedDate(System.currentTimeMillis())}",
+                                        fontSize = 16.sp
+                                    )
+                                    Text(
+                                        text="Tomorrow . ${formatSelectedDate(System.currentTimeMillis()+86400000)}",
+                                        fontSize = 16.sp
+                                    )
+                                    Text(
+                                        text="This weekend . ${formatSelectedDate(jumal)}",
+                                        fontSize = 16.sp
+                                    )
+                                    Text(
+                                        text="Next weekend . ${formatSelectedDate(jumal+86400000*7)}",
+                                        fontSize = 16.sp
+                                    )
+                                }
+                            },
+                            showModeToggle = false
                             )
                     }
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
                         Button(
                             onClick = {}, //무슨 기능인지 몰라서 안 넣었습니다
-                            modifier=Modifier.size(150.dp, 50.dp),
+                            modifier=Modifier.wrapContentSize(),
                             colors = buttonColors(
                                 contentColor = customColor,
                                 containerColor = bgc
@@ -162,7 +195,7 @@ fun ScheduleCardPU(
                         Spacer(modifier = Modifier.size(15.dp))
                         Button(
                             onClick = { scheduleDate = formatSelectedDate(datePickerState.selectedDateMillis);showTS = true},
-                            modifier=Modifier.size(150.dp, 50.dp),
+                            modifier=Modifier.wrapContentSize(),
                             colors = buttonColors(
                                 contentColor = bgc,
                                 containerColor = customColor
@@ -180,11 +213,14 @@ fun ScheduleCardPU(
     if (showTS) {
         Dialog(
             onDismissRequest = { showTS = false },
-            properties = DialogProperties(usePlatformDefaultWidth = false)
+            properties = DialogProperties(usePlatformDefaultWidth = false),
         ) {
             Card(
-                modifier = Modifier.fillMaxWidth().wrapContentHeight().background(color = White),
-                shape = RectangleShape
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .background(color = White),
+                shape = RoundedCornerShape(8.dp)
             ) {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
@@ -194,7 +230,7 @@ fun ScheduleCardPU(
                     val timePickerState = rememberTimePickerState(
                         initialHour = currentTime.get(Calendar.HOUR_OF_DAY),
                         initialMinute = currentTime.get(Calendar.MINUTE),
-                        is24Hour = true,
+                        is24Hour = false,
                     )
                     Column(
                         modifier = Modifier.fillMaxWidth(),
@@ -202,30 +238,53 @@ fun ScheduleCardPU(
                     ) {
                         TimePicker(
                             state = timePickerState,
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier
+                                .fillMaxWidth(),
                             colors = TimePickerColors(
+                                selectorColor = customColor,
+                                containerColor = White,
                                 clockDialColor = Milk,
                                 timeSelectorSelectedContainerColor = customColor,
-                                timeSelectorUnselectedContainerColor = customColor, //위 숫자 배경
+                                timeSelectorUnselectedContainerColor = customColor,
                                 timeSelectorSelectedContentColor = White,
-                                timeSelectorUnselectedContentColor = White, //위 숫자 글자
+                                timeSelectorUnselectedContentColor = White,
                                 periodSelectorSelectedContainerColor = customColor,
                                 periodSelectorUnselectedContainerColor = customColor,
                                 periodSelectorSelectedContentColor = White,
                                 periodSelectorUnselectedContentColor = White,
-                                periodSelectorBorderColor = White,
-                                selectorColor = customColor,
+                                periodSelectorBorderColor = customColor,
                                 clockDialSelectedContentColor = White,
-                                clockDialUnselectedContentColor = Black,
-                                containerColor = customColor
+                                clockDialUnselectedContentColor = Black
                             )
                         )
                     }
-                    Row(modifier = Modifier.background(color=bgc)) {
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.CenterEnd
+                    Row(modifier = Modifier.background(color=bgc).fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Start) {
+                        Button(
+                            onClick = {},
+                            modifier=Modifier.wrapContentSize(),
+                            colors = buttonColors(
+                                contentColor = customColor,
+                                containerColor = bgc
+                            )
                         ) {
+                            Text(
+                                text="Zone"
+                            )
+                        }
+                        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                            Button(
+                                onClick = { showTF = true; },
+                                modifier = Modifier.wrapContentSize(),
+                                colors = buttonColors(
+                                    contentColor = customColor,
+                                    containerColor = bgc
+                                )
+                            ) {
+                                Text(
+                                    text = "CANCEL"
+                                )
+                            }
                             Button(
                                 onClick = {
                                     scheduleTime = if (timePickerState.hour < 10) {
@@ -253,7 +312,7 @@ fun ScheduleCardPU(
                                         showTS = false
                                     }
                                 },
-                                modifier = Modifier.size(150.dp, 50.dp),
+                                modifier = Modifier.wrapContentSize(),
                                 colors = buttonColors(
                                     contentColor = customColor,
                                     containerColor = bgc
@@ -295,7 +354,7 @@ fun ScheduleCardPU(
                         .clip(RoundedCornerShape(12.dp))
                         .background(customColor)
                         .clickable() {
-                            showTF=true
+                            showTF = true
 //                            scope.launch {
 //                                scheduleDao.insert(
 //                                    Schedule(
