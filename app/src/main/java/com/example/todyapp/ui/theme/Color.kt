@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color.Companion.Green
 
 fun String.toThemeColor(): Color = when (this) {
     "Green" -> Greenx
+    "Greeny" -> Greeny
     "Red" -> Red
     "Blue" -> Blue
     "Black" -> Black
@@ -13,6 +14,7 @@ fun String.toThemeColor(): Color = when (this) {
 
 fun Color.toThemeName(): String = when (this) {
     Greenx -> "Green"
+    Greeny -> "Greeny"
     Red   -> "Red"
     Blue  -> "Blue"
     Black -> "Black"
@@ -25,6 +27,8 @@ val Blue = Color(0xFF1877F2)
 val Black = Color(0xFF1B1C1F)
 val White = Color(0xFFFFFFFF)
 val Gray = Color(0xFFA0AAB8)
+
+val Greeny = Color(0xFF24A19C)
 
 val Milk = Color(0xFFE7ECF5)
 

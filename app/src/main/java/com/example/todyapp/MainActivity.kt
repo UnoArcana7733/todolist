@@ -17,6 +17,7 @@ import androidx.room.Room
 import com.example.todyapp.room.AppDatabase
 import com.example.todyapp.root.AppNavGraph
 import com.example.todyapp.ui.theme.Greenx
+import com.example.todyapp.ui.theme.Greeny
 import com.example.todyapp.ui.theme.TodyappTheme
 import com.example.todyapp.ui.theme.toThemeColor
 import kotlinx.coroutines.launch
@@ -31,11 +32,11 @@ class MainActivity : ComponentActivity() {
                 val db = remember{Room.databaseBuilder(applicationContext, AppDatabase::class.java, "AppDatabase").build()}
                 val colorDao = remember{db.colorDao()}
                 val scheduleDao = remember{db.scheduleDao()}
-                var mainColor: Color by remember { mutableStateOf(Greenx) }
+                var mainColor: Color by remember { mutableStateOf(Greeny) }
                 val scope = rememberCoroutineScope()
                 val refresh: () -> Unit = {
                     scope.launch {
-                        mainColor = colorDao.getAll().firstOrNull()?.selectedColor?.toThemeColor() ?: Greenx
+                        mainColor = colorDao.getAll().firstOrNull()?.selectedColor?.toThemeColor() ?: Greeny
                     }
                 }
                 LaunchedEffect(Unit) { scope.launch {

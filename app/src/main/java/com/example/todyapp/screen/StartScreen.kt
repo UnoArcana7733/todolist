@@ -22,7 +22,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.todyapp.R
 import com.example.todyapp.room.ColorDAO
+import com.example.todyapp.root.First
 import com.example.todyapp.root.Guide
+import com.example.todyapp.ui.theme.Greeny
 import com.example.todyapp.ui.theme.White
 import kotlinx.coroutines.delay
 
@@ -59,7 +61,12 @@ fun StartScreen(navController: NavController, mainColor: Color, colorDAO: ColorD
     LaunchedEffect(Unit)
     {
         delay(300)
-        navController.navigate(Guide)
+        if (mainColor == Greeny) {
+            navController.navigate(First)
+        }
+        else {
+            navController.navigate(Guide)
+        }
     }
 }
 
