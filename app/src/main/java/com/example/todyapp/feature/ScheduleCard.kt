@@ -1,5 +1,6 @@
 package com.example.todyapp.feature
 
+import android.R.attr.description
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -16,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TimePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,6 +31,7 @@ import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
 import com.example.todyapp.ui.theme.Gray
 import com.example.todyapp.ui.theme.White
+import kotlinx.coroutines.launch
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,7 +46,7 @@ fun ScheduleCard(
     val ds = todos.description
     val date = todos.date
     val time = todos.time
-//    val time= timee.toTimePickerState()
+    val scope = rememberCoroutineScope()
     Box(
         modifier = Modifier
             .size(500.dp, 200.dp)
@@ -70,7 +73,17 @@ fun ScheduleCard(
                         .clip(RoundedCornerShape(12.dp))
                         .background(customColor)
                         .clickable() {
-                            // 스케줄 제거 기능 구현 예정
+//                            scope.launch {
+//                                scheduleDao.killingTime(
+//                                    Schedule(
+//                                        id = id,
+//                                        name = name,
+//                                        description = ds,
+//                                        date = date,
+//                                        time = time
+//                                    )
+//                                )
+//                            }
                         },
                     contentAlignment = Alignment.Center
                 ) {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material Symbols: send (outlined, FILL0, wght400, GRAD0, opsz24) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+    <group android:translateY="960">
+        <path
+            android:fillColor="#1F1F1F"
+            android:pathData="M120,-160v-640l760,320l-760,320Zm80,-120l474,-200l-474,-200v140l240,60l-240,60v140Zm0,0v-400v400Z" />
+    </group>
+</vector>

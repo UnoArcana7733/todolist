@@ -208,9 +208,9 @@ fun ScheduleCardPU(
                             colors = TimePickerColors(
                                 clockDialColor = Milk,
                                 timeSelectorSelectedContainerColor = customColor,
-                                timeSelectorUnselectedContainerColor = customColor,
+                                timeSelectorUnselectedContainerColor = customColor, //위 숫자 배경
                                 timeSelectorSelectedContentColor = White,
-                                timeSelectorUnselectedContentColor = White,
+                                timeSelectorUnselectedContentColor = White, //위 숫자 글자
                                 periodSelectorSelectedContainerColor = customColor,
                                 periodSelectorUnselectedContainerColor = customColor,
                                 periodSelectorSelectedContentColor = White,
@@ -219,7 +219,7 @@ fun ScheduleCardPU(
                                 selectorColor = customColor,
                                 clockDialSelectedContentColor = White,
                                 clockDialUnselectedContentColor = Black,
-                                containerColor = White
+                                containerColor = customColor
                             )
                         )
                     }
