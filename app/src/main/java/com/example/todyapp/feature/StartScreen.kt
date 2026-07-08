@@ -1,4 +1,4 @@
-package com.example.todyapp.screen
+package com.example.todyapp.feature
 
 //import com.example.todyapp.room.AppDatabase
 import androidx.compose.foundation.Image
@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.todyapp.R
-import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.root.First
 import com.example.todyapp.root.Guide
 import com.example.todyapp.ui.theme.Greeny
@@ -31,7 +30,7 @@ import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun StartScreen(navController: NavController, mainColor: Color, colorDAO: ColorDAO) {
+fun StartScreen(navController: NavController, mainColor: Color) {
     Box(
         modifier = Modifier
             .fillMaxSize()

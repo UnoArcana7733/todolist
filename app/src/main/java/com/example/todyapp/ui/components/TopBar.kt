@@ -1,4 +1,4 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -27,8 +27,8 @@ fun TopBar(navController: NavController) {
     Box(modifier = Modifier.fillMaxWidth().size(130.dp), contentAlignment = Alignment.TopCenter) {
         Column {
             Spacer(modifier = Modifier.size(60.dp))
-            Row() {
-                Column() {
+            Row {
+                Column {
                     Text(
                         text = "Today",
                         color = Black,
@@ -47,7 +47,7 @@ fun TopBar(navController: NavController) {
                 Image(
                     painter = painterResource(id = R.drawable.settings_b_roll),
                     contentDescription = "I don't sure we can call this a roll",
-                    modifier = Modifier.size(40.dp).clickable() {navController.navigate(Guide)},
+                    modifier = Modifier.size(40.dp).clickable {navController.navigate(Guide)},
                     alignment = Alignment.Center
                 )
             }

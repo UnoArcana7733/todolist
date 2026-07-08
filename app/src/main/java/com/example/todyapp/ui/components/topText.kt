@@ -1,4 +1,4 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

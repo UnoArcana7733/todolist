@@ -27,11 +27,8 @@ val Blue = Color(0xFF1877F2)
 val Black = Color(0xFF1B1C1F)
 val White = Color(0xFFFFFFFF)
 val Gray = Color(0xFFA0AAB8)
-
 val Greeny = Color(0xFF24A19C)
-
 val Milk = Color(0xFFE7ECF5)
-
 val bgc = Color(0xFFFFFFFF)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)

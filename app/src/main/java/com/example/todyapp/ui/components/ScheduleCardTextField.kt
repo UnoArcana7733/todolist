@@ -1,4 +1,4 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,7 +29,6 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todyapp.room.ColorDAO
-import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
 import com.example.todyapp.ui.theme.Gray
 import com.example.todyapp.ui.theme.White

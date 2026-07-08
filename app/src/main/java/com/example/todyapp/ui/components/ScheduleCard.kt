@@ -1,6 +1,6 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
-import android.R.attr.description
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
-import androidx.compose.material3.TimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -31,7 +30,6 @@ import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
 import com.example.todyapp.ui.theme.Gray
 import com.example.todyapp.ui.theme.White
-import kotlinx.coroutines.launch
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,7 +70,7 @@ fun ScheduleCard(
                         .size(40.dp)
                         .clip(RoundedCornerShape(12.dp))
                         .background(customColor)
-                        .clickable() {
+                        .clickable {
 //                            scope.launch {
 //                                scheduleDao.killingTime(
 //                                    Schedule(
@@ -95,7 +93,7 @@ fun ScheduleCard(
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
-                Column() {Text(text=name);Text(text=ds)}
+                Column {Text(text=name);Text(text=ds)}
             }
             Box(
                 modifier = Modifier
@@ -104,7 +102,7 @@ fun ScheduleCard(
                     .height(1.dp)
                     .background(customColor)
             )
-            Column() {
+            Column {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

@@ -2,6 +2,7 @@ package com.example.todyapp.room
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -22,4 +23,6 @@ interface ScheduleDAO{
     suspend fun insert(vararg schedule: Schedule)
     @Query("SELECT * FROM schedule")
     suspend fun getAll(): List<Schedule>
+    @Delete
+    fun killingTime(vararg schedule: Schedule)
 }

@@ -1,4 +1,4 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -37,57 +37,57 @@ fun BottomBar(navController: NavController) {
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.Center
         ) {
-            Column() {
+            Column {
                 Image(
                     painter = painterResource(id = R.drawable.home),
                     contentDescription = "Home Sweet Home",
                     modifier = Modifier
                         .size(40.dp)
-                        .clickable() { navController.navigate(First) },
+                        .clickable { navController.navigate(First) },
                     alignment = Alignment.Center,
                 )
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Column() {
+            Column {
                 Image(
                     painter = painterResource(id = R.drawable.move_to_inbox),
-                    contentDescription = "Store Araya in the time box",
+                    contentDescription = "Store her daughter in the time box",
                     modifier = Modifier
                         .size(40.dp)
-                        .clickable() { navController.navigate(Second) },
+                        .clickable { navController.navigate(Second) },
                     alignment = Alignment.Center
                 )
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Column() {
+            Column {
                 Image(
                     painter = painterResource(id = R.drawable.calendar_month),
                     contentDescription = "July is coming",
                     modifier = Modifier
                         .size(40.dp)
-                        .clickable() { navController.navigate(Third) },
+                        .clickable { navController.navigate(Third) },
                     alignment = Alignment.Center
                 )
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Column() {
+            Column {
                 Image(
                     painter = painterResource(id = R.drawable.window),
                     contentDescription = "Better than mac",
                     modifier = Modifier
                         .size(40.dp)
-                        .clickable() { navController.navigate(Fourth) },
+                        .clickable { navController.navigate(Fourth) },
                     alignment = Alignment.Center
                 )
             }
             Spacer(modifier = Modifier.size(50.dp))
-            Column() {
+            Column {
                 Image(
                     painter = painterResource(id = R.drawable.add_photo_alternate),
                     contentDescription = "Broken Gallery",
                     modifier = Modifier
                         .size(40.dp)
-                        .clickable() { navController.navigate(Fifth) },
+                        .clickable { navController.navigate(Fifth) },
                     alignment = Alignment.Center
                 )
             }

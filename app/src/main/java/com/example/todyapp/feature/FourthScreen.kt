@@ -1,4 +1,4 @@
-package com.example.todyapp.screen
+package com.example.todyapp.feature
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -7,8 +7,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.todyapp.feature.BottomBar
-import com.example.todyapp.feature.TopBar
+import com.example.todyapp.ui.components.BottomBar
+import com.example.todyapp.ui.components.TopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

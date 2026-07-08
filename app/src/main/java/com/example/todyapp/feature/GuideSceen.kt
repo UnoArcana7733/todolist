@@ -1,4 +1,4 @@
-package com.example.todyapp.screen
+package com.example.todyapp.feature
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.todyapp.feature.BottomText
-import com.example.todyapp.feature.CustomGuide
-import com.example.todyapp.feature.TopText
+import com.example.todyapp.ui.components.BottomText
+import com.example.todyapp.ui.components.CustomGuide
+import com.example.todyapp.ui.components.TopText
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.ui.theme.Black
 import com.example.todyapp.ui.theme.Blue
@@ -41,13 +41,13 @@ fun GuideScreen(navController: NavController, mainColor: Color, colorDAO: ColorD
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Spacer(modifier = Modifier.size(20.dp))
-                CustomGuide(Greenx, mainColor, colorDAO, refresh)
+                CustomGuide(Greenx, colorDAO,  refresh)
                 Spacer(modifier = Modifier.size(10.dp))
-                CustomGuide(Black, mainColor, colorDAO, refresh)
+                CustomGuide(Black, colorDAO, refresh)
                 Spacer(modifier = Modifier.size(10.dp))
-                CustomGuide(Blue, mainColor, colorDAO, refresh)
+                CustomGuide(Blue, colorDAO, refresh)
                 Spacer(modifier = Modifier.size(10.dp))
-                CustomGuide(Red, mainColor, colorDAO, refresh)
+                CustomGuide(Red, colorDAO, refresh)
                 Spacer(modifier = Modifier.size(200.dp))
             }
         }

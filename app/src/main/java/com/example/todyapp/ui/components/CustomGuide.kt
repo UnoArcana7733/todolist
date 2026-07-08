@@ -1,4 +1,4 @@
-package com.example.todyapp.feature
+package com.example.todyapp.ui.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -31,7 +31,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun CustomGuide(
     customColor: Color,
-    mainColor: Color,
     colorDao: ColorDAO,
     refresh: ()->Unit
 ) {
@@ -42,9 +41,9 @@ fun CustomGuide(
             .height(120.dp)
             .padding(40.dp,3.dp)
             .shadow(5.dp, RoundedCornerShape(20.dp))
-            .clickable() {
+            .clickable {
                 scope.launch {
-                colorDao.screenSelectColor(ThemeColor(id = 0, selectedColor = customColor.toThemeName()));
+                colorDao.screenSelectColor(ThemeColor(id = 0, selectedColor = customColor.toThemeName()))
                     refresh()
                 }
             }) {
@@ -67,7 +66,7 @@ fun CustomGuide(
                             center = Offset(25.dp.toPx(), 25.dp.toPx())
                         )
                     })
-                Column() {
+                Column {
                     Spacer(Modifier.padding(5.dp))
                     Canvas(
                         modifier = Modifier.size(230.dp, 5.dp),

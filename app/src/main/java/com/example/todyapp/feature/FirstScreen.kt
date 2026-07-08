@@ -1,4 +1,4 @@
-package com.example.todyapp.screen
+package com.example.todyapp.feature
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -17,11 +17,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
-import com.example.todyapp.feature.BottomBar
-import com.example.todyapp.feature.ScheduleCard
-import com.example.todyapp.feature.ScheduleCardPU
-import com.example.todyapp.feature.ScheduleCardTF
-import com.example.todyapp.feature.TopBar
+import com.example.todyapp.ui.components.BottomBar
+import com.example.todyapp.ui.components.ScheduleCard
+import com.example.todyapp.ui.components.ScheduleCardPU
+import com.example.todyapp.ui.components.TopBar
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO

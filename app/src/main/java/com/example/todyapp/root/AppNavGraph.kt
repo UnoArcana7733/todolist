@@ -7,13 +7,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.todyapp.room.ColorDAO
 import com.example.todyapp.room.ScheduleDAO
-import com.example.todyapp.screen.FifthScreen
-import com.example.todyapp.screen.FirstScreen
-import com.example.todyapp.screen.FourthScreen
-import com.example.todyapp.screen.GuideScreen
-import com.example.todyapp.screen.SecondScreen
-import com.example.todyapp.screen.StartScreen
-import com.example.todyapp.screen.ThirdScreen
+import com.example.todyapp.feature.FifthScreen
+import com.example.todyapp.feature.FirstScreen
+import com.example.todyapp.feature.FourthScreen
+import com.example.todyapp.feature.GuideScreen
+import com.example.todyapp.feature.SecondScreen
+import com.example.todyapp.feature.StartScreen
+import com.example.todyapp.feature.ThirdScreen
 import kotlinx.serialization.Serializable
 
 @Composable
@@ -28,7 +28,7 @@ fun AppNavGraph(
         startDestination = Start
     ) {
         composable<Start> {
-            StartScreen(navController = navController, mainColor = mainColor, colorDAO = colorDAO)
+            StartScreen(navController = navController, mainColor = mainColor)
         }
         composable<Guide> {
             GuideScreen(navController = navController, mainColor = mainColor, colorDAO = colorDAO, refresh = refresh)

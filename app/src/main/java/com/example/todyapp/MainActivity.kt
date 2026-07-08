@@ -16,7 +16,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.example.todyapp.room.AppDatabase
 import com.example.todyapp.root.AppNavGraph
-import com.example.todyapp.ui.theme.Greenx
 import com.example.todyapp.ui.theme.Greeny
 import com.example.todyapp.ui.theme.TodyappTheme
 import com.example.todyapp.ui.theme.toThemeColor
