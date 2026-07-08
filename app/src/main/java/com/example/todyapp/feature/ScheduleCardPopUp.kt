@@ -1,5 +1,8 @@
 package com.example.todyapp.feature
 
+import android.R.attr.onClick
+import android.R.color.white
+import android.R.id.custom
 import android.app.ProgressDialog.show
 import android.icu.util.Calendar
 import androidx.compose.animation.core.Animatable
@@ -7,6 +10,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +22,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +31,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TimePicker
+import androidx.compose.material3.TimePickerColors
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
@@ -51,7 +58,9 @@ import com.example.todyapp.room.Schedule
 import com.example.todyapp.room.ScheduleDAO
 import com.example.todyapp.ui.theme.Black
 import com.example.todyapp.ui.theme.Gray
+import com.example.todyapp.ui.theme.Milk
 import com.example.todyapp.ui.theme.White
+import com.example.todyapp.ui.theme.bgc
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneOffset
@@ -89,7 +98,7 @@ fun ScheduleCardPU(
     if (showTF) {
         Dialog(onDismissRequest = { showTF = false },properties = DialogProperties(usePlatformDefaultWidth = false)
         ) {
-            Card(modifier = Modifier.wrapContentHeight().fillMaxWidth(),shape=RectangleShape) {
+            Card(modifier = Modifier.wrapContentHeight().fillMaxWidth().background(color=White),shape=RectangleShape) {
                 Column(modifier = Modifier) {
                     OutlinedTextField(
                         value = scheduleName,
@@ -130,7 +139,7 @@ fun ScheduleCardPU(
     if (showDS) {
         Dialog(onDismissRequest = { showTS = false },properties = DialogProperties(usePlatformDefaultWidth = false)
         ) {
-            Card(modifier = Modifier.fillMaxWidth().wrapContentHeight(),shape=RectangleShape) {
+            Card(modifier = Modifier.fillMaxWidth().wrapContentHeight().background(color=White),shape=RectangleShape) {
                 Column() {
                     val datePickerState = rememberDatePickerState()
                     val currentTime = Calendar.getInstance()
@@ -139,21 +148,30 @@ fun ScheduleCardPU(
                             state = datePickerState,
                         )
                     }
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Box(
-                            contentAlignment = Alignment.CenterEnd
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                        Button(
+                            onClick = {}, //무슨 기능인지 몰라서 안 넣었습니다
+                            modifier=Modifier.size(150.dp, 50.dp),
+                            colors = buttonColors(
+                                contentColor = customColor,
+                                containerColor = bgc
+                            )
                         ) {
-                            Image(
-                                alignment = Alignment.CenterEnd,
-                                painter = painterResource(id = R.drawable.ic_send),
-                                contentDescription = "flyer",
-                                modifier = Modifier
-                                    .size(30.dp)
-                                    .clickable() {
-                                        scheduleDate =
-                                            formatSelectedDate(datePickerState.selectedDateMillis);
-                                        showTS = true
-                                    }
+                            Text(
+                                text="add Time"
+                            )
+                        }
+                        Spacer(modifier = Modifier.size(15.dp))
+                        Button(
+                            onClick = { scheduleDate = formatSelectedDate(datePickerState.selectedDateMillis);showTS = true},
+                            modifier=Modifier.size(150.dp, 50.dp),
+                            colors = buttonColors(
+                                contentColor = bgc,
+                                containerColor = customColor
+                            )
+                        ) {
+                            Text(
+                                text="Reschedule"
                             )
                         }
                     }
@@ -162,46 +180,92 @@ fun ScheduleCardPU(
         }
     }
     if (showTS) {
-        Dialog(onDismissRequest = { showTS = false },properties = DialogProperties(usePlatformDefaultWidth = false)
+        Dialog(
+            onDismissRequest = { showTS = false },
+            properties = DialogProperties(usePlatformDefaultWidth = false)
         ) {
-            Card(modifier = Modifier.fillMaxWidth().wrapContentHeight(),shape=RectangleShape) {
-                Column() {
+            Card(
+                modifier = Modifier.fillMaxWidth().wrapContentHeight().background(color = White),
+                shape = RectangleShape
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center
+                ) {
                     val currentTime = Calendar.getInstance()
                     val timePickerState = rememberTimePickerState(
                         initialHour = currentTime.get(Calendar.HOUR_OF_DAY),
                         initialMinute = currentTime.get(Calendar.MINUTE),
                         is24Hour = true,
                     )
-                    Column {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalArrangement = Arrangement.Center
+                    ) {
                         TimePicker(
                             state = timePickerState,
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = TimePickerColors(
+                                clockDialColor = Milk,
+                                timeSelectorSelectedContainerColor = customColor,
+                                timeSelectorUnselectedContainerColor = customColor,
+                                timeSelectorSelectedContentColor = White,
+                                timeSelectorUnselectedContentColor = White,
+                                periodSelectorSelectedContainerColor = customColor,
+                                periodSelectorUnselectedContainerColor = customColor,
+                                periodSelectorSelectedContentColor = White,
+                                periodSelectorUnselectedContentColor = White,
+                                periodSelectorBorderColor = White,
+                                selectorColor = customColor,
+                                clockDialSelectedContentColor = White,
+                                clockDialUnselectedContentColor = Black,
+                                containerColor = White
+                            )
                         )
                     }
-                    Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
-                        Image(
-                            alignment = Alignment.CenterEnd,
-                            painter = painterResource(id = R.drawable.ic_send),
-                            contentDescription = "flyer",
-                            modifier = Modifier
-                                .size(30.dp)
-                                .clickable() {
-                                    scheduleTime=if (timePickerState.hour<10){"0"}else{""}+timePickerState.hour.toString()+":"+if (timePickerState.minute<10){"0"}else{""}+timePickerState.minute.toString()
+                    Row(modifier = Modifier.background(color=bgc)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.CenterEnd
+                        ) {
+                            Button(
+                                onClick = {
+                                    scheduleTime = if (timePickerState.hour < 10) {
+                                        "0"
+                                    } else {
+                                        ""
+                                    } + timePickerState.hour.toString() + ":" + if (timePickerState.minute < 10) {
+                                        "0"
+                                    } else {
+                                        ""
+                                    } + timePickerState.minute.toString()
                                     scope.launch {
-                                    scheduleDao.insert(
-                                        Schedule(
-                                            id = 0,
-                                            name = scheduleName,
-                                            description = scheduleDescription,
-                                            date = scheduleDate,
-                                            time = scheduleTime
+                                        scheduleDao.insert(
+                                            Schedule(
+                                                id = 0,
+                                                name = scheduleName,
+                                                description = scheduleDescription,
+                                                date = scheduleDate,
+                                                time = scheduleTime
+                                            )
                                         )
-                                    )
-                                    refreshSC()
-                                    showTF=false
-                                    showDS=false
-                                    showTS=false
-                                } }
-                        )
+                                        refreshSC()
+                                        showTF = false
+                                        showDS = false
+                                        showTS = false
+                                    }
+                                },
+                                modifier = Modifier.size(150.dp, 50.dp),
+                                colors = buttonColors(
+                                    contentColor = customColor,
+                                    containerColor = bgc
+                                )
+                            ) {
+                                Text(
+                                    text = "OK"
+                                )
+                            }
+                        }
                     }
                 }
             }
